@@ -10,25 +10,23 @@ from stop_words import stop_words_spanish # Importar la lista de stop words en e
 
 
 
-df = pd.DataFrame(data)
 
-# Lista de stop words en español
-
+#Filtrado de acentos
 def remove_accents(text):
     
     result = re.sub(
-        r'[áéíóúÁÉÍÓÚ]',
+        r'[áéíóú]',
         lambda match: {
-            'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
-            'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U'
+            'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u'
         }[match.group()],
         text
     )
-
     return result
 
 data['text'] = [remove_accents(text) for text in data['text']]
 
+
+df = pd.DataFrame(data)
 print(data)
 # Crear el vectorizador con la lista de stop words en español
 vectorizer = CountVectorizer(stop_words=stop_words_spanish)
