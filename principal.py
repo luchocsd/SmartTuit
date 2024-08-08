@@ -5,35 +5,6 @@ from sklearn.naive_bayes import MultinomialNB
 import re
 import time
 
-
-# Ejemplo de datos
-
-#IDEAS: 01 MÁS DE UNA CATEGORÍA POR TWIT(Hablando de porcentajes)
-#       02 PONDERAR UNA CATEGORÍA AL AZAR POR SOBRE EL RESTO, si le pegas justo a una categoría que le interesa al usuario aceleras el algoritmo
-
-# PENDIENTE: AGREGAR MAS TEXTOS PARA ENTRENAR (DESPUES DE AVERIGUAR COMO EXPORTAR EL MODELO ENTRENADO), AGREGAR MAS CATEGORÍAS
-
-#Para semana del 13/7:
-#Generara 50 tutis para mostar al usuario para que haga su seleccion
-#Cada individuo del AG posee 5 tuits, dejandonos con 10 individuos y cada individuo con un arreglo de 4 probabilidades para cad categoria
-#El arreglo represneta la cantidad final de tutis que tendra esa categoria.
-#Ver como cargamos para que sea (ver idea de arriba 02)
-#Interfaz simple para mostrar un tuit desp de otro y q el usuario ingrese la interaccion(like)
-#for each twit (print twit, input de L o N, os.cls)
-#Luego indique que ya termino de ver los 50 tuits y que se le mostrara el resultado final (la proximma generacion de tuits)
-
-
-'''
-c/ individuo
-[0 1 3 1]  
-0 economia
-1 futbol
-3 autos
-1 caballos
-'''
-
-
-
 data = {
     'text': [
         # Animal
@@ -122,7 +93,7 @@ stop_words_spanish = [
     'estado', 'estada', 'estados', 'estadas', 'estad'
 ]
 def remove_accents(text):
-
+    
     result = re.sub(
         r'[áéíóúÁÉÍÓÚ]',
         lambda match: {
@@ -170,9 +141,11 @@ new_texts = [
 '''''
 # Transformar los nuevos textos utilizando el mismo vectorizador
 X_new = vectorizer.transform(new_texts)
+
 # Predecir las categorías de los nuevos textos
 new_predictions = clf.predict(X_new)
 #print(new_predictions)
+
 #categorias = ["animal","tecnologia", "deportes", "economia"]
 '''
 
@@ -191,4 +164,5 @@ for i in range(len(new_texts)):
     print("Probabilidades de categorías:")
     for category, prob in category_probabilities.items():
         print(f"{category}: {prob * 100:.2f}%")
+        
 
