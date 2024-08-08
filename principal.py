@@ -1,6 +1,30 @@
+import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
 
-# Lista de stop words en español (palabras que en un articulo/tweet no tendrian valor para determinar el tipo)
+
+# Ejemplo de datos
+data = {
+    'text': [
+        "El rápido gato marrón salta sobre el perro perezoso",
+        "Nunca saltes sobre el mono perezoso rápidamente",
+        "La economía global está en crisis",
+        "Las acciones suben y bajan en el mercado",
+        "Los nuevos avances en inteligencia artificial son asombrosos",
+        "La red neuronal ha aprendido a jugar al ajedrez",
+        "La pelota ha empezado a rodar en el campo de futbol",
+        "El equipo azul y amarillo vencio a su par de Buenos Aires"
+    ],
+    'category': [
+        'animal', 'animal', 'economía', 'economía', 'tecnología', 'tecnología', 'deportes','deportes'
+    ]
+}
+
+df = pd.DataFrame(data)
+
+
+# Lista de stop words en español
 stop_words_spanish = [
     'de', 'la', 'que', 'el', 'en', 'y', 'a', 'los', 'del', 'se', 'las', 'por', 'un', 
     'para', 'con', 'no', 'una', 'su', 'al', 'lo', 'como', 'más', 'pero', 'sus', 'le', 
@@ -20,27 +44,48 @@ stop_words_spanish = [
     'estabais', 'estaban', 'estuve', 'estuviste', 'estuvo', 'estuvimos', 'estuvisteis', 
     'estuvieron', 'estuviera', 'estuvieras', 'estuviéramos', 'estuvierais', 'estuvieran', 
     'estuviese', 'estuvieses', 'estuviésemos', 'estuvieseis', 'estuviesen', 'estando', 
-    'estado', 'estada', 'estados', 'estadas', 'estad', 'detrás', 'delante', 'encima',
+    'estado', 'estada', 'estados', 'estadas', 'estad'
 ]
 
-
-documents = [
-    "El mercado de valores es un mercado de capitales en el que se negocian los valores de renta variable y fija de una forma estructurada, a través de la compraventa de valores, que son activos financieros que representan una parte alícuota del capital social de una empresa o una deuda.",
-    
-    "El equipo de futbol argentino logro vencer a su rival en la final de la copa Libertadores, donde logro una hazana al ganar el partido en los ultimos minutos.",
-    
-    "El actor de la serie de televisión logro ganar un premio por su actuación en la serie, donde se destaco por su actuación en la serie.",
-    
-    "El presidente de la nación anuncio que se llevara a cabo un plan de vacunación masiva en todo el país, donde se espera que se vacune a la mayor cantidad de personas posibles.",
-]
-
-#Crear un objeto de la clase CountVectorizer
+# Crear el vectorizador con la lista de stop words en español
 vectorizer = CountVectorizer(stop_words=stop_words_spanish)
 
-# Ajustar y transformar los documentos
-X = vectorizer.fit_transform(documents)
 
-# Mostrar las palabras que tienen valor y determinan el tipo del tweet
-print(vectorizer.get_feature_names_out())
-#Mostrar la matriz de frecuencia de palabras que tienen validez en cada tweet.
-print(X.toarray())  
+X = vectorizer.fit_transform(df['text']) # Ajustar y transformar los documentos
+
+
+#print(vectorizer.get_feature_names_out())
+#print(X)  
+
+
+
+# Dividir los datos en conjunto de entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, df['category'], test_size=0.1, random_state=42) # 70% entrenamiento, 30% prueba ya qu ese declaro     https://www.youtube.com/watch?v=BUkqYGPnLZ8&ab_channel=ManifoldAILearning     explicacion de la funcion 
+                                                                                                        # test_size=0.3 , lo q implica que el resto se completa con 0.7 para train.
+
+print(X_train.shape)
+print(y_train.shape)
+print(X_test.shape)
+print(y_test.shape)
+
+# Crear y entrenar el clasificador Naive Bayes
+clf = MultinomialNB()
+clf.fit(X_train, y_train)
+
+
+
+# Nuevos textos a clasificar en las categorías existentes
+new_texts = [
+    "El mercado bursátil ha caído drásticamente",
+    "Los avances en robótica son impresionantes",
+    "El equipo de futbol argentino ha ganado el campeonato",
+    "El perro y el gato son amigos inseparables",
+    "La inteligencia artificial es el futuro",
+]
+
+# Transformar los nuevos textos utilizando el mismo vectorizador
+X_new = vectorizer.transform(new_texts)
+
+# Predecir las categorías de los nuevos textos
+new_predictions = clf.predict(X_new)
+print(new_predictions)
