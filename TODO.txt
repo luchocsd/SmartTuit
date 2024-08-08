@@ -17,7 +17,7 @@ TAREAS:
 
 ________________________________________________________________________________________________________________________
 
-Para semana del 13/8:
+Para semana del 13/7:
 [ ] Generara 50 tuits para mostar al usuario para que haga su seleccion
 [ ] Cada individuo del AG posee 5 tuits, dejandonos con 10 individuos y cada individuo con un arreglo de 4 probabilidades para cad categoria
 [ ] El arreglo represneta la cantidad final de tutis que tendra esa categoria.

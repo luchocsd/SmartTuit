@@ -54,9 +54,10 @@ clf.fit(X_train, y_train)
 
 # Nuevos textos a clasificar en las categorías existentes
 new_texts = [
-    "El super auto azul explota contra una mesada",
-    "Actualmente el costo de los lobo a aumentado en valor de dinero y de lo  delfín en el agua",
-    "el mercado esta sangrando"
+    "El presidente de la república se reunió con el congreso para discutir la nueva ley de impuestos",
+    "El equipo de fútbol de la ciudad ganó el campeonato nacional",
+    "La empresa de tecnología presentó su nuevo producto en la feria de innovación",
+    "El zoológico de la ciudad presentó a su nuevo animal exótico",
 ]
 '''''
 # Transformar los nuevos textos utilizando el mismo vectorizador
