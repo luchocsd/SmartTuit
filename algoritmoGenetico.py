@@ -74,8 +74,10 @@ def asociarTuits(): #asocia los tuits a cada individuo
             else:
                 tuitsAsociados[i][j] = tuit_categoria[3][random.randint(0,9)]
     
-        
-    print("Tuits asociados: ", tuitsAsociados)
+    for i in range(numIndividuos):
+        print("Individuo ", individuos[i], "Tuits asociados: ", tuitsAsociados[i])    
+        print("\n")
+    
 
         
         

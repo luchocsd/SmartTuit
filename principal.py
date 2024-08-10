@@ -56,7 +56,7 @@ clf.fit(X_train, y_train)
 
 # Nuevos textos a clasificar en las categorías existentes
 new_texts = [
-    ""
+    "el dia de ayer se encontro una suba repentina en las acciones de apple provocando que los perros de los vecinos se vuelvan locos"
     
 ]
 '''''
