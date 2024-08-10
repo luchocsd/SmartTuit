@@ -167,7 +167,7 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
                 elif(reaccion =="F"): #pregunta para ver si no fue un typo, si quiere terminar, dejarlo, si no modificar reaccion
                     reaccion= input("esta seguro que desea terminar el experimento? F - finalizar /N - no finalizar").upper() #validar
             else: #si desea finalizar
-                break #esto es temporal
+                break 
             op="S"
         if (reaccion =="F"):
             break
