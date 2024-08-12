@@ -8,7 +8,7 @@ import math
 global numGenes,numIndividuos, individuos, valObj, porcFitness,probCrossover, probMutacion, valorMayorGlobal, valorMenorGlobal, menorGlobal, mayorGlobal, corridas, promedioValObjPorCorrida, nombreArchivoExcel
 numGenes = 4 #CANT DE CATEGORIAS
 numTuits= 6 #CANT DE TUITS POR INDIVIDUO
-numIndividuos = 6 #MODIFICAR LUEGO
+numIndividuos = 4 #MODIFICAR LUEGO
 probCrossover = 0.75
 probMutacion = 0.05
 valorMenorGlobal = 99999 ################ PARA GUARDAR DATOS POR CORRIDA, NO LOS USAMOS AUN
@@ -83,16 +83,23 @@ def ruleta():
         hijos [i] = individuos[aux].copy() #paso por valor a un array hijos los ganadores
     individuos = hijos
 
+def calculoObjetivo():
+    totalObj = 0  
+    
+    for i in range(numIndividuos):  #para cada individuo
+        valObj[i] = cantLikes[i] #guarda los valores de la FO de cada individuo respetando su posicion
+        totalObj += valObj[i] #acumula la sumatoria de valores de FO
 
-op= ""
-reaccion = ""
-print("_"*90)
-op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
-while op != "C" and op != "S":
-    print("Opcion no valida")
-    op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
+    return totalObj #sumatoria de la funcion objetivo de la generacion
 
-
+def funcionFitness():     
+    total = calculoObjetivo()
+    
+    for i in range(numIndividuos):
+        porcFitness[i]=valObj[i]/total #Calcula el porcentaje de fitness de cada individuo 
+    
+    
+    
 '''
 habria que generar un array de tuits (o rescatarlos de un csv, no se, cada uno catalogado con su categoría)
 luego se generan al azar los individuos (arreglos como [0, 1, 3, 1]) con inicializarPoblacion()
@@ -101,10 +108,18 @@ todas las corridas que hagamos sean iguales)
 Se debería generar un fitness del tamaño numIndividuos que almacene el fitness de cada ind al final de cada uno
 Luego se hacen selec, cross y mut y se repite
 ''' 
+op= ""
+reaccion = ""
+print("_"*90)
+op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
+while op != "C" and op != "S":
+    print("Opcion no valida")
+    op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
 
 inicializarPoblacion() #se genera la poblacion inicial de individuos
 asociarTuits() #se asocian los tuits a cada individuo
 
+iteracion = 0
 while op.upper() =="C": #si el usuario desea comenzar el experimento
     for i in range (numIndividuos): #para cada individuo de la poblacion
         for j in range (numTuits): #para cada tuit del individuo
@@ -112,7 +127,7 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
                 time.sleep(0.5)
                 os.system('cls')
                 time.sleep(0.5)
-                print("individuo: ", i, "tuit: ", j, "likes de este individuo: ", cantLikes[i]) #muestra datos del tuit (solo en desarrollo, despues sacar)
+                print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j) #muestra datos del tuit (solo en desarrollo, despues sacar)
                 
                 print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
                 
@@ -124,13 +139,33 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
                 if (reaccion =="L"):
                     cantLikes[i]+=1
                 elif(reaccion =="F"): #pregunta para ver si no fue un typo, si quiere terminar, dejarlo, si no modificar reaccion
-                    reaccion= input("esta seguro que desea terminar el experimento? F - finalizar /N - no finalizar").upper() #validar
+                    time.sleep(0.5)
+                    os.system('cls')
+                    time.sleep(0.5)
+                    reaccion= input("esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
+                    while reaccion != "F" and reaccion != "N":
+                        print("Opcion no valida")
+                        reaccion= input("Esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
+                    if (reaccion=="N"):
+                        j-=1 #esto puede estar re feo
+                # print('FITNESS')
+                # print(calculoObjetivo())
+                # print('PORCENTAJE FITNESS')
+                funcionFitness()
+                # print(porcFitness[i])
             else: #si desea finalizar
                 break 
             op="S"
+        # print(porcFitness)
         if (reaccion =="F"):
             break
-
+    print(porcFitness)
+    print("poblacion antes de ruleta: ", individuos)
+    ruleta()
+    print("poblacion despues de ruleta: ", individuos)
+    time.sleep(2)
+    
+    
 
         
         #calcular y almacenar fitness del individuo
@@ -141,9 +176,13 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
     #se reinicia el array de likes
 #mostrar datos del experimento en general
 
+
 print("Datos del experimento")
+print("\nantes del flitrado")
 print(individuos)
+print("\ntuits finales")
 print(cantidadTuits)
+print("\ncantidad de likes por individuo")
 print(cantLikes)
 print("\n--- Fin del programa ---")
 
