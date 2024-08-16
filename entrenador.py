@@ -3,14 +3,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 import re
-import time
-import random
+import joblib
 import os
+
+
 
 from data import data # Importar los datos de entrenamiento alamacenados en data.py(archivo externo)
 from stop_words import stop_words_spanish # Importar la lista de stop words en español desde stop_words.py(archivo externo)
-
-
 
 
 #Filtrado de acentos
@@ -53,36 +52,17 @@ clf = MultinomialNB()
 clf.fit(X_train, y_train)
 
 
+save_directory = 'Projecto Investigacion/SmartTuit/ModeloEntrenado'  # Reemplaza esto con la ruta a tu carpeta
 
-# Nuevos textos a clasificar en las categorías existentes
-new_texts = [
-    "el dia de ayer se encontro una suba repentina en las acciones de apple provocando que los perros de los vecinos se vuelvan locos"
-    
-]
-'''''
-# Transformar los nuevos textos utilizando el mismo vectorizador
-X_new = vectorizer.transform(new_texts)
+# Crear la carpeta si no existe
+os.makedirs(save_directory, exist_ok=True)
 
-# Predecir las categorías de los nuevos textos
-new_predictions = clf.predict(X_new)
-#print(new_predictions)
+# Guardar el modelo entrenado
+model_path = os.path.join(save_directory, 'modelo_entrenado.pkl')
+joblib.dump(clf, model_path)
 
-#categorias = ["animal","tecnologia", "deportes", "economia"]
-'''
-new_texts = [remove_accents(text) for text in new_texts]
+# Guardar el vectorizador
+vectorizer_path = os.path.join(save_directory, 'vectorizador.pkl')
+joblib.dump(vectorizer, vectorizer_path)
 
-new_X = vectorizer.transform(new_texts)
 
-# Obtener las probabilidades de las categorías
-probabilities = clf.predict_proba(new_X)
-
-for i in range(len(new_texts)):
-
-    print("--Elemento ",i,"--")
-    category_probabilities = {category: prob for category, prob in zip(clf.classes_, probabilities[i])}
-
-    # Imprimir las probabilidades de cada categoría
-    print("Probabilidades de categorías:")
-    for category, prob in category_probabilities.items():
-        print(f"{category}: {prob * 100:.2f}%")
-        

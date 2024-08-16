@@ -17,5 +17,11 @@ stop_words_spanish = [
     'estabais', 'estaban', 'estuve', 'estuviste', 'estuvo', 'estuvimos', 'estuvisteis', 
     'estuvieron', 'estuviera', 'estuvieras', 'estuviéramos', 'estuvierais', 'estuvieran', 
     'estuviese', 'estuvieses', 'estuviésemos', 'estuvieseis', 'estuviesen', 'estando', 
-    'estado', 'estada', 'estados', 'estadas', 'estad'
+    'estado', 'estada', 'estados', 'estadas', 'estad',
+    'además', 'si', 'tan', 'tú', 'usted', 'quien', 'cual', 'este', 'ese', 'aquel', 
+    'aquella', 'aquello', 'ese', 'en', 'entre', 'tras', 'bajo', 'hacia', 'con', 'sin', 
+    'desde', 'hasta', 'como', 'según', 'durante', 'mediante', 'sobre', 'por', 'para', 
+    'a', 'ante', 'con', 'de', 'desde', 'durante', 'entre', 'hacia', 'para', 'por', 
+    'según', 'sobre', 'tras', 'ante', 'bajo', 'con', 'de', 'desde', 'entre', 'hasta', 
+    'mediante', 'según', 'sobre', 'tras'
 ]

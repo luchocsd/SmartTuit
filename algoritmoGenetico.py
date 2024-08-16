@@ -124,9 +124,9 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
     for i in range (numIndividuos): #para cada individuo de la poblacion
         for j in range (numTuits): #para cada tuit del individuo
             if (reaccion !="F"): #si el usuario no desea terminar el experimento
-                time.sleep(0.5)
+                #time.sleep(0.5)
                 os.system('cls')
-                time.sleep(0.5)
+                #time.sleep(0.5)
                 print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j) #muestra datos del tuit (solo en desarrollo, despues sacar)
                 
                 print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
@@ -139,9 +139,9 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
                 if (reaccion =="L"):
                     cantLikes[i]+=1
                 elif(reaccion =="F"): #pregunta para ver si no fue un typo, si quiere terminar, dejarlo, si no modificar reaccion
-                    time.sleep(0.5)
+                    #time.sleep(0.5)
                     os.system('cls')
-                    time.sleep(0.5)
+                    #time.sleep(0.5)
                     reaccion= input("esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
                     while reaccion != "F" and reaccion != "N":
                         print("Opcion no valida")
