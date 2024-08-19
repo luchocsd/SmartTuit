@@ -6,6 +6,12 @@ IDEAS:
 [ ] 02  PONDERAR UNA CATEGORÍA AL AZAR POR SOBRE EL RESTO
         si le pegas justo a una categoría que le interesa al usuario, aceleras el algoritmo genetico
 
+[ ] 03 FUNCION FITNESS
+        decidir si el fitness es likes/cantTuits o likes/totalLikes
+
+[ ] 04 CATEGORIAS
+        futbol, tecnologia (programacion / celulares / autos), cocina, (politica / economia), musica, 
+
 ________________________________________________________________________________________________________________________
 
 TAREAS:
