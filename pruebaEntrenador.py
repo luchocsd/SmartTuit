@@ -29,6 +29,8 @@ new_texts = [
 #Si no le pongo escuelas publicas, el porcentaje de que sea de educacion es mucho mas bajo
 "El jueves se estrena en cartelera del cine DeadPool 3",
 "La pelicula Deadpool vs Wolverine es de las mas taquilleras del año",#No tiene buen porcentaje de entretenimiento
+"el otro dia me cocine un plato al horno con papas y me quedo riquisimo",
+"la adminisitracion de milei esta siendo muy criticada por la oposicion",
 
 ]
 

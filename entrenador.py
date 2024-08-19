@@ -28,7 +28,7 @@ data['text'] = [remove_accents(text) for text in data['text']]
 
 
 df = pd.DataFrame(data)
-print(data)
+
 # Crear el vectorizador con la lista de stop words en español
 vectorizer = CountVectorizer(stop_words=stop_words_spanish)
 
@@ -36,8 +36,10 @@ vectorizer = CountVectorizer(stop_words=stop_words_spanish)
 X = vectorizer.fit_transform(df['text']) # Ajustar y transformar los documentos
 
 
-#print(vectorizer.get_feature_names_out())
+print("El total de palabras utilizadas en el entrenamiento: " , len(vectorizer.get_feature_names_out()))
+
 #print(X.toarray())  
+
 
 
 
