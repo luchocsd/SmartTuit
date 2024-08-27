@@ -4237,6 +4237,7 @@ data = {
 'category': categories
 }
 
+#animal, economía, tecnología, deportes, educación, entretenimiento, gastronomia, politica, salud, cultura
 #print(len(data['text']))
 #print(len(data['category']))
 
