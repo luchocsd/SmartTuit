@@ -38,7 +38,7 @@ data['text'] = [remove_emojis(text) for text in data['text']]
 
 df = pd.DataFrame(data)
 
-# Crear el vectorizador con la lista de stop words en español
+# Crear el vectorizador con la lista de stop words en español y el rango de hasta 3 palabras
 vectorizer = CountVectorizer(stop_words=stop_words_spanish, ngram_range=(1, 3))
 
 
@@ -60,10 +60,8 @@ for i in range(0, len(vectorizer.get_feature_names_out()), block):
 
 
 
-
-
 # Dividir los datos en conjunto de entrenamiento y prueba   # test_size=0.3 , lo q implica que el resto se completa con 0.7 para train.
-X_train, X_test, y_train, y_test = train_test_split(X, df['category'], test_size=0.05, random_state=42) # 70% entrenamiento, 30% prueba ya qu ese declaro     https://www.youtube.com/watch?v=BUkqYGPnLZ8&ab_channel=ManifoldAILearning     explicacion de la funcion 
+X_train, X_test, y_train, y_test = train_test_split(X, df['category'], test_size=0.05, random_state=42) # 70% entrenamiento, 30% prueba ya qu ese declaro 0.3 
                                                                                                         
 
 

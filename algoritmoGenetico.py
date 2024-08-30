@@ -59,7 +59,7 @@ def asociarTuits(): #asocia los tuits a cada individuo
     global tuitsAsociados, cantidadTuits
     for i in range(numIndividuos):
         partes = sum(individuos[i])  #[0, 1, 3, 1] -> 5 
-        print("##math##")
+        
         for j in range(numGenes):
             cantidadTuits[i][j] = math.ceil((individuos[i][j]/partes)*numTuits)
         
@@ -228,8 +228,12 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
     mutacion()
     print("poblacion despues de mutacion: ", individuos)
     print("Datos del experimento")
-    input()
     asociarTuits()
+    print("Cantidad de tuits: (desp de ruleta y eso)")
+    print(cantidadTuits)
+    input()
+    
+    
 print("\n--- Fin del programa ---")
 
 

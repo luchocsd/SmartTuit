@@ -4184,7 +4184,7 @@ text = [
 'La Casa de la Cultura y la Memoria será el espacio de un taller de bufón',
 'Cultura Rodante se suma a Vacaciones Divertidas y sale a recorrer la Provincia',
 'Turismo o patrimonio: el difícil equilibrio entre una fuente de ingresos millonaria y la protección de los bienes artísticos',
-'Cultura Viva Barrial, una fiesta de arte y diversión en todo Maipú',
+'Cultura. Viva Barrial, una fiesta de arte y diversión en todo Maipú',
 'El Puente Leticia se cubre de cultura y color: Passerini recorrió la obra artística colaborativa de más de un kilómetro de largo',
 'Centro Cultural América: las vacaciones de invierno entretenidas con Tardes para chicos',
 'Llega el Pase Cultural para adultos',
