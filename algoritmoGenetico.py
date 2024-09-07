@@ -2,7 +2,7 @@ import time
 import random
 import os
 import math
-from tuits_categorizados import tuit_categoria 
+from resultados_clasificacion import resultados 
 
 
 global numGenes,numIndividuos, individuos, valObj, porcFitness,probCrossover, probMutacion, valorMayorGlobal, valorMenorGlobal, menorGlobal, mayorGlobal, corridas, promedioValObjPorCorrida, nombreArchivoExcel
@@ -10,7 +10,7 @@ numGenes = 10 #CANT DE CATEGORIAS
 numTuits= 10 #CANT DE TUITS POR INDIVIDUO
 numIndividuos = 10 #MODIFICAR LUEGO
 probCrossover = 0.75
-probMutacion = 0.25
+probMutacion = 0.9
 valorMenorGlobal = 99999 ################ PARA GUARDAR DATOS POR CORRIDA, NO LOS USAMOS AUN
 valorMayorGlobal = 0 #####################
 menorGlobal = [0]*numGenes #######
@@ -48,9 +48,21 @@ def inicializarPoblacion(): #generamos numIndividuos individuos, con numTuits tu
                  #como va a estar con un tuit ponderado, el resto de los tuits se generan con valores menores
             else:
                 individuos[i][j] = random.randint(0,10)
+    
+    individuos[0] = [10,0,0,0,0,0,0,0,0,0] #para probar que el individuo con un tuit ponderado tenga mas likes
+    individuos[1] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[2] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[3] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[4] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[5] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[6] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[7] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[8] = [10,0,0,0,0,0,0,0,0,0]
+    individuos[9] = [10,0,0,0,0,0,0,0,0,0]
 
 
-    print("Poblacion inicial: ", cantidadTuits)
+
+   
 
 
 
@@ -72,7 +84,7 @@ def asociarTuits(): #asocia los tuits a cada individuo
         posTuitAsoc=0
         for j in range(numGenes): #parados en el individuo i recorremos cada una de las 4 categorias j
             for k in range (cantidadTuits[i][j]): #la cantidad de tuits que tenga para esa categoria
-                tuitsAsociados[i][posTuitAsoc] = tuit_categoria[j][random.randint(0,9)] #le asocio k tuits de la categoria j
+                tuitsAsociados[i][posTuitAsoc] = resultados[j][random.randint(0,len(resultados[j])-1)] #le asocio k tuits de la categoria j
                 posTuitAsoc+=1 #para que no sobreescriba sobre los mismo tuits
 
     for i in range(numIndividuos):

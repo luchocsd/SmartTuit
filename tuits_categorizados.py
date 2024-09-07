@@ -1,19 +1,7 @@
 # Lista de tuplas con 10 tuits por cada categoría
 tuit_categoria = [
 
-    # Animal
-    [
-        "Los elefantes son conocidos por su memoria",
-        "El tigre es un felino en peligro de extinción",
-        "Las aves migratorias recorren largas distancias",
-        "El perro es considerado el mejor amigo del hombre",
-        "Los gatos son animales muy independientes",
-        "El león es conocido como el rey de la selva",
-        "Los delfines son animales muy inteligentes",
-        "Las abejas juegan un papel crucial en la polinización",
-        "El canguro es un símbolo de Australia",
-        "Las ballenas son los mamíferos más grandes del mundo"
-    ],
+    
     # Economía
     [
         "La inflación afecta a todos los sectores económicos",
@@ -26,6 +14,19 @@ tuit_categoria = [
         "La economía global enfrenta una recesión",
         "El precio del petróleo ha caído significativamente",
         "Las criptomonedas han ganado popularidad"
+    ],
+    # Animal
+    [
+        "Los elefantes son conocidos por su memoria",
+        "El tigre es un felino en peligro de extinción",
+        "Las aves migratorias recorren largas distancias",
+        "El perro es considerado el mejor amigo del hombre",
+        "Los gatos son animales muy independientes",
+        "El león es conocido como el rey de la selva",
+        "Los delfines son animales muy inteligentes",
+        "Las abejas juegan un papel crucial en la polinización",
+        "El canguro es un símbolo de Australia",
+        "Las ballenas son los mamíferos más grandes del mundo"
     ],
 
     

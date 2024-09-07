@@ -27,7 +27,6 @@ new_texts = [
 "el otro dia me cocine un plato al horno con papas y me quedo riquisimo",
 "la adminisitracion de milei esta siendo muy criticada por la oposicion",
 "la viruela de  es una enfermedad que afecta a los  delcarada por la OMS",
-
 ]
 
 new_texts = [remove_accents(text) for text in new_texts]

@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL de la página que deseas scrapear
-url = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNREYzY3pVU0JtVnpMVFF4T1NnQVAB?hl=es-419&gl=AR&ceid=AR%3Aes-419"
+url = "https://news.google.com/search?q=CULTURA&hl=es-419&gl=AR&ceid=AR%3Aes-419"
 # Realiza la solicitud HTTP
 response = requests.get(url)
 

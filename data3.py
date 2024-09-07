@@ -74,7 +74,7 @@ text = [
 'Un hombre fue condenado a 7 meses de prisión por maltrato animal y otros delitos',
 '29 de abril: Día del Animal',
 'Guaymallén festeja el Día del Animal con una campaña de vacunación y concientización',
-'El 1er Observatorio “Vínculo Humano – Animal” del país estará en Berazategui',
+'El 1er Observatorio “Vínculo Humano  Animal” del país estará en Berazategui',
 'Se oficializó el proyecto «Amor Animal» para regular la tenencia responsable de mascotas',
 '¿Qué es la Ley Conan y en qué otros países está penado el maltrato animal?',
 'Leyes de protección animal en Argentina: por qué es importante considerarlos como seres sintientes',
