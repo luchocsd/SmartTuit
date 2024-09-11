@@ -3,20 +3,25 @@ import random
 import os
 import math
 from resultados_clasificacion import resultados 
+import pandas as pd
+import matplotlib.pyplot as plt
+
 
 
 global numGenes,numIndividuos, individuos, valObj, porcFitness,probCrossover, probMutacion, valorMayorGlobal, valorMenorGlobal, menorGlobal, mayorGlobal, corridas, promedioValObjPorCorrida, nombreArchivoExcel
 numGenes = 10 #CANT DE CATEGORIAS
-numTuits= 10 #CANT DE TUITS POR INDIVIDUO
-numIndividuos = 10 #MODIFICAR LUEGO
-probCrossover = 0.75
-probMutacion = 0.9
+numTuits= 30 #CANT DE TUITS POR INDIVIDUO
+numIndividuos = 30 #MODIFICAR LUEGO
+probCrossover = 0.5
+probMutacion = 0.4
 valorMenorGlobal = 99999 ################ PARA GUARDAR DATOS POR CORRIDA, NO LOS USAMOS AUN
 valorMayorGlobal = 0 #####################
 menorGlobal = [0]*numGenes #######
 mayorGlobal = [0]*numGenes #######
 corridas = 0 # DIRIA QUE TRABAJEMOS CON CORRIDAS HASTA QUE EL USUARIO LAS CORTE, NADA HARDCODEADO
-
+numeroGeneraciones = 1000
+generacion = 0
+iteracion = 0
 
 
 #Definimos el arreglo de individuos
@@ -26,6 +31,7 @@ valObj = [0 for i in range(numIndividuos)]  #para guardar el valor de la func ob
 porcFitness = [0 for i in range(numIndividuos)] #Para guaradar los valores del porcentaje que brinda la fun fitness para cada indiviuo
 cantidadTuits =[[0 for i in range(numGenes)] for j in range(numIndividuos)]
 cantLikes = [0 for i in range(numIndividuos)] #almacena la cantidad de likes de cada individuo, cada iteracion
+cantidadTuitsTabla = [[0 for i in range(numGenes)]for j in range(numeroGeneraciones)] #para poder guardar mucha cantidad ya que no  sabemos le limite
 
 
 def inicializarPoblacion(): #generamos numIndividuos individuos, con numTuits tuits distribuidos entre numGenes categorias
@@ -49,16 +55,7 @@ def inicializarPoblacion(): #generamos numIndividuos individuos, con numTuits tu
             else:
                 individuos[i][j] = random.randint(0,10)
     
-    individuos[0] = [10,0,0,0,0,0,0,0,0,0] #para probar que el individuo con un tuit ponderado tenga mas likes
-    individuos[1] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[2] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[3] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[4] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[5] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[6] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[7] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[8] = [10,0,0,0,0,0,0,0,0,0]
-    individuos[9] = [10,0,0,0,0,0,0,0,0,0]
+    #guardarDatosTabla()
 
 
 
@@ -147,19 +144,52 @@ def mutacion():
             posicion = random.randint(0,numGenes-1)
             accion = random.randint(0,1)
             if individuos[i][posicion] == 10:  #validar para que no se pase de 5 ni de 0(limites definidos)
-                individuos[i][posicion] = individuos[i][posicion]-1
+                individuos[i][posicion] = individuos[i][posicion]
             elif individuos[i][posicion] == 0:
                 individuos[i][posicion] = individuos[i][posicion]+1
             else:
                 if accion == 0:
-                    individuos[i][posicion] = individuos[i][posicion]-1
-                else:
                     individuos[i][posicion] = individuos[i][posicion]+1
+                else:
+                    individuos[i][posicion] = individuos[i][posicion]-1
 
 
 
+def guardarDatosTabla():
+    global generacion, cantidadTuitsTabla
+    for i in range(numGenes):
+        for j in range(numIndividuos):
+            cantidadTuitsTabla[generacion-1][i] = cantidadTuits[j][i] + cantidadTuitsTabla[generacion-1][i]
+    
+
+def imprimirTabla():
+    global cantidadTuitsTabla, generacion, numeroGeneraciones
+    
+    
+    # Definición de la tabla de datos
+    
+    generacion = len(cantidadTuitsTabla)
+    numGenes = len(cantidadTuitsTabla[0])
+    
+    print(cantidadTuitsTabla)
+    for i in range(numGenes):
+        plt.plot([j+1 for j in range(generacion)], [cantidadTuitsTabla[j][i] for j in range(generacion)], label=f'Categoría {i+1}')
+    
+    plt.xlabel('Generación')
+    plt.ylabel('Cantidad de Tuits')
+    plt.title('Cantidad de Tuits por Categoría a lo Largo de las Generaciones')
+    plt.legend()
+    plt.grid(True)
+    
+    # Ajuste de los límites de los ejes
+    plt.xlim(1, numeroGeneraciones)
+    plt.ylim(0, 400)
+    
+    plt.show()
 
     
+
+
 '''
 habria que generar un array de tuits (o rescatarlos de un csv, no se, cada uno catalogado con su categoría)
 luego se generan al azar los individuos (arreglos como [0, 1, 3, 1]) con inicializarPoblacion()
@@ -179,52 +209,55 @@ while op != "C" and op != "S":
 inicializarPoblacion() #se genera la poblacion inicial de individuos
 asociarTuits() #se asocian los tuits a cada individuo
 
-generacion = 0
-iteracion = 0
-while op.upper() =="C": #si el usuario desea comenzar el experimento
+
+while generacion<numeroGeneraciones: #si el usuario desea comenzar el experimento
     for i in range (numIndividuos): #para cada individuo de la poblacion
+        cantidaddelikespordar =  cantidadTuits[i][8] + cantidadTuits[i][9] + cantidadTuits[i][2] #cantidad de likes que puede dar el individuo
+        likesDados=0
         for j in range (numTuits): #para cada tuit del individuo
-            if (reaccion !="F"): #si el usuario no desea terminar el experimento
+            #if (reaccion !="F"): #si el usuario no desea terminar el experimento
                 #time.sleep(0.5)
-                os.system('cls')
+                
                 #time.sleep(0.5)
-                print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j, "GEN: ", generacion) #muestra datos del tuit (solo en desarrollo, despues sacar)
+                # print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j, "GEN: ", generacion) #muestra datos del tuit (solo en desarrollo, despues sacar)
                 
-                print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
+                # print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
                 
-                reaccion= input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
-                while reaccion != "L" and reaccion != "N" and reaccion != "F":
-                    print("Opcion no valida")
-                    reaccion= input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
-               
-                if (reaccion =="L"):
-                    cantLikes[i]+=1
-                elif(reaccion =="F"): #pregunta para ver si no fue un typo, si quiere terminar, dejarlo, si no modificar reaccion
+                # reaccion = input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
+                # while reaccion != "L" and reaccion != "N" and reaccion != "F":
+                #     print("Opcion no valida")
+                #     reaccion= input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
+            if(likesDados<cantidaddelikespordar):
+                likesDados+=1
+                    
+                # if (reaccion =="L"):
+                cantLikes[i]+=1
+                # elif(reaccion =="F"): #pregunta para ver si no fue un typo, si quiere terminar, dejarlo, si no modificar reaccion
                     #time.sleep(0.5)
-                    os.system('cls')
+                    #os.system('cls')
                     #time.sleep(0.5)
-                    reaccion= input("esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
-                    while reaccion != "F" and reaccion != "N":
-                        print("Opcion no valida")
-                        reaccion= input("Esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
-                    if (reaccion=="N"):
-                        j-=1 #esto puede estar re feo
+                    # reaccion= input("esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
+                    # while reaccion != "F" and reaccion != "N":
+                    #     print("Opcion no valida")
+                    #     reaccion= input("Esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
+                    # if (reaccion=="N"):
+                    #     j-=1 #esto puede estar re feo
                 # print('FITNESS')
                 # print(calculoObjetivo())
                 # print('PORCENTAJE FITNESS')
-                funcionFitness()
+            funcionFitness()
                 # print(porcFitness[i])
-            else: #si desea finalizar
-                break 
-            op="S"
-        # print(porcFitness)
-        if (reaccion =="F"):
-            break
+        # else: #si desea finalizar
+        #     break 
+        #     op="S"
+        # # print(porcFitness)
+        # if (reaccion =="F"):
+        #     break
 
-    op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
-    while op != "C" and op != "S":
-        print("Opcion no valida")
-        op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
+    # op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
+    # while op != "C" and op != "S":
+    #     print("Opcion no valida")
+    #     op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
     generacion+=1
     
     print("\ncantidad de likes por individuo")
@@ -243,9 +276,11 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
     asociarTuits()
     print("Cantidad de tuits: (desp de ruleta y eso)")
     print(cantidadTuits)
-    input()
+    guardarDatosTabla()
     
+
     
+imprimirTabla()
 print("\n--- Fin del programa ---")
 
 

@@ -61,14 +61,40 @@ for i in range(0, len(vectorizer.get_feature_names_out()), block):
 
 
 # Dividir los datos en conjunto de entrenamiento y prueba   # test_size=0.3 , lo q implica que el resto se completa con 0.7 para train.
-X_train, X_test, y_train, y_test = train_test_split(X, df['category'], test_size=0.05, random_state=42) # 70% entrenamiento, 30% prueba ya qu ese declaro 0.3 
+X_train, X_test, y_train, y_test = train_test_split(X, df['category'], test_size=0.4, random_state=42) # 70% entrenamiento, 30% prueba ya qu ese declaro 0.3 
                                                                                                         
+
 
 
 
 # Crear y entrenar el clasificador Naive Bayes
 clf = MultinomialNB()
 clf.fit(X_train, y_train)
+
+
+from sklearn.metrics import confusion_matrix, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Realizar predicciones en el conjunto de prueba
+y_pred = clf.predict(X_test)
+
+# Generar la matriz de confusión
+conf_matrix = confusion_matrix(y_test, y_pred, labels=df['category'].unique())
+
+# Imprimir el reporte de clasificación para más detalles
+print(classification_report(y_test, y_pred))
+
+# Visualizar la matriz de confusión
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=df['category'].unique(), yticklabels=df['category'].unique())
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.title('Confusion Matrix')
+plt.show()
+
+
+
 
 
 save_directory = 'Projecto Investigacion/SmartTuit/ModeloEntrenado'  # Reemplaza esto con la ruta a tu carpeta
