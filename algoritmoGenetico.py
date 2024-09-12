@@ -12,14 +12,14 @@ global numGenes,numIndividuos, individuos, valObj, porcFitness,probCrossover, pr
 numGenes = 10 #CANT DE CATEGORIAS
 numTuits= 30 #CANT DE TUITS POR INDIVIDUO
 numIndividuos = 30 #MODIFICAR LUEGO
-probCrossover = 0.5
-probMutacion = 0.4
+probCrossover = 0.7
+probMutacion = 0.1
 valorMenorGlobal = 99999 ################ PARA GUARDAR DATOS POR CORRIDA, NO LOS USAMOS AUN
 valorMayorGlobal = 0 #####################
 menorGlobal = [0]*numGenes #######
 mayorGlobal = [0]*numGenes #######
 corridas = 0 # DIRIA QUE TRABAJEMOS CON CORRIDAS HASTA QUE EL USUARIO LAS CORTE, NADA HARDCODEADO
-numeroGeneraciones = 1000
+numeroGeneraciones = 4000
 generacion = 0
 iteracion = 0
 
@@ -70,7 +70,10 @@ def asociarTuits(): #asocia los tuits a cada individuo
         partes = sum(individuos[i])  #[0, 1, 3, 1] -> 5 
         
         for j in range(numGenes):
-            cantidadTuits[i][j] = math.ceil((individuos[i][j]/partes)*numTuits)
+            if partes == 0:
+                cantidadTuits[i][j] = 0
+            else:
+                cantidadTuits[i][j] = math.ceil((individuos[i][j]/partes)*numTuits)
         
         while(sum(cantidadTuits[i])>numTuits):    #Me aseguro que la suma sea = a numTuits ver si hacer random
             posicion = random.randint(0,numGenes-1) 
@@ -142,14 +145,21 @@ def mutacion():
     for i in range(numIndividuos):
         if(random.randint(0,100)<=probMutacion*100):
             posicion = random.randint(0,numGenes-1)
-            accion = random.randint(0,1)
-            if individuos[i][posicion] == 10:  #validar para que no se pase de 5 ni de 0(limites definidos)
-                individuos[i][posicion] = individuos[i][posicion]
+            accion = random.randint(0,2)
+            if individuos[i][posicion] == 10:#validar para que no se pase de 5 ni de 0(limites definidos)
+                if accion == 0:
+                    individuos[i][posicion] = individuos[i][posicion]-1
+                else:
+                    individuos[i][posicion] = individuos[i][posicion]
+
             elif individuos[i][posicion] == 0:
                 individuos[i][posicion] = individuos[i][posicion]+1
+
             else:
                 if accion == 0:
                     individuos[i][posicion] = individuos[i][posicion]+1
+                elif accion == 1:
+                    individuos[i][posicion] = individuos[i][posicion]
                 else:
                     individuos[i][posicion] = individuos[i][posicion]-1
 
@@ -171,7 +181,7 @@ def imprimirTabla():
     generacion = len(cantidadTuitsTabla)
     numGenes = len(cantidadTuitsTabla[0])
     
-    print(cantidadTuitsTabla)
+    #print(cantidadTuitsTabla)
     for i in range(numGenes):
         plt.plot([j+1 for j in range(generacion)], [cantidadTuitsTabla[j][i] for j in range(generacion)], label=f'Categoría {i+1}')
     
@@ -200,10 +210,10 @@ Luego se hacen selec, cross y mut y se repite
 ''' 
 op= ""
 reaccion = ""
-print("_"*90)
+#print("_"*90)
 op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
 while op != "C" and op != "S":
-    print("Opcion no valida")
+    #print("Opcion no valida")
     op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
 
 inicializarPoblacion() #se genera la poblacion inicial de individuos
@@ -212,20 +222,23 @@ asociarTuits() #se asocian los tuits a cada individuo
 
 while generacion<numeroGeneraciones: #si el usuario desea comenzar el experimento
     for i in range (numIndividuos): #para cada individuo de la poblacion
-        cantidaddelikespordar =  cantidadTuits[i][8] + cantidadTuits[i][9] + cantidadTuits[i][2] #cantidad de likes que puede dar el individuo
+        if generacion<1500:
+            cantidaddelikespordar = cantidadTuits[i][8] + cantidadTuits[i][9]
+        else:
+            cantidaddelikespordar = cantidadTuits[i][0]#cantidad de likes que puede dar el individuo
         likesDados=0
         for j in range (numTuits): #para cada tuit del individuo
             #if (reaccion !="F"): #si el usuario no desea terminar el experimento
                 #time.sleep(0.5)
                 
                 #time.sleep(0.5)
-                # print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j, "GEN: ", generacion) #muestra datos del tuit (solo en desarrollo, despues sacar)
+                # #print("iteracion: ",iteracion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j, "GEN: ", generacion) #muestra datos del tuit (solo en desarrollo, despues sacar)
                 
-                # print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
+                # #print ("\033[92m",tuitsAsociados[i][j],"\033[0m") #muestra el tuit y pide que de Like, No Like o Finalizar
                 
                 # reaccion = input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
                 # while reaccion != "L" and reaccion != "N" and reaccion != "F":
-                #     print("Opcion no valida")
+                #     #print("Opcion no valida")
                 #     reaccion= input("   L - Like\n   N - No Like (continuar)\n   F - Finalizar experimento\nIngrese la opcion deseada: ").upper()
             if(likesDados<cantidaddelikespordar):
                 likesDados+=1
@@ -238,49 +251,50 @@ while generacion<numeroGeneraciones: #si el usuario desea comenzar el experiment
                     #time.sleep(0.5)
                     # reaccion= input("esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
                     # while reaccion != "F" and reaccion != "N":
-                    #     print("Opcion no valida")
+                    #     #print("Opcion no valida")
                     #     reaccion= input("Esta seguro que desea terminar el experimento? \nF - finalizar \nN - no finalizar").upper()
                     # if (reaccion=="N"):
                     #     j-=1 #esto puede estar re feo
-                # print('FITNESS')
-                # print(calculoObjetivo())
-                # print('PORCENTAJE FITNESS')
+                # #print('FITNESS')
+                # #print(calculoObjetivo())
+                # #print('PORCENTAJE FITNESS')
             funcionFitness()
-                # print(porcFitness[i])
+                # #print(porcFitness[i])
         # else: #si desea finalizar
         #     break 
         #     op="S"
-        # # print(porcFitness)
+        # # #print(porcFitness)
         # if (reaccion =="F"):
         #     break
 
     # op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
     # while op != "C" and op != "S":
-    #     print("Opcion no valida")
+    #     #print("Opcion no valida")
     #     op = input("   C - Continuar\n   S - Salir\nIngrese la opcion deseada: ").upper()
     generacion+=1
     
-    print("\ncantidad de likes por individuo")
-    print(cantLikes)
-    print(cantidadTuits)
+    #print("\ncantidad de likes por individuo")
+    #print(cantLikes)
+    #print(cantidadTuits)
     cantLikes = [0 for i in range(numIndividuos)] #reinicia el array de likes
-    print(porcFitness)
-    print("poblacion antes de ruleta: ", individuos)
+    #print(porcFitness)
+    #print("poblacion antes de ruleta: ", individuos)
     ruleta()
-    print("poblacion despues de ruleta: ", individuos)
+    #print("poblacion despues de ruleta: ", individuos)
     crossover()
-    print("poblacion despues de crossover: ", individuos)
+    #print("poblacion despues de crossover: ", individuos)
     mutacion()
-    print("poblacion despues de mutacion: ", individuos)
-    print("Datos del experimento")
+    #print("poblacion despues de mutacion: ", individuos)
+    #print("Datos del experimento")
     asociarTuits()
-    print("Cantidad de tuits: (desp de ruleta y eso)")
-    print(cantidadTuits)
+    #print("Cantidad de tuits: (desp de ruleta y eso)")
+    #print(cantidadTuits)
     guardarDatosTabla()
     
 
     
 imprimirTabla()
+print(individuos)
 print("\n--- Fin del programa ---")
 
 

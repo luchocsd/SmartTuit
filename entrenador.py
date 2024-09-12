@@ -9,6 +9,7 @@ import os
 
 
 from data import data # Importar los datos de entrenamiento alamacenados en data.py(archivo externo)
+from data3 import data as dataPrueba
 from stop_words import stop_words_spanish # Importar la lista de stop words en español desde stop_words.py(archivo externo)
 
 
@@ -93,7 +94,33 @@ plt.ylabel('True')
 plt.title('Confusion Matrix')
 plt.show()
 
+#PRUEBA EXTERNA
 
+dataPrueba['text'] = [remove_accents(text) for text in dataPrueba['text']]
+dataPrueba['text'] = [remove_emojis(text) for text in dataPrueba['text']]
+
+# Convertir dataPrueba en un DataFrame
+df_prueba = pd.DataFrame(dataPrueba)
+
+# Vectorizar dataPrueba utilizando el vectorizador entrenado
+X_test_prueba = vectorizer.transform(df_prueba['text'])  # No se usa fit_transform para no modificar el vectorizador ya entrenado
+
+# Realizar predicciones en el conjunto de prueba externo
+y_pred_prueba = clf.predict(X_test_prueba)
+
+# Generar la matriz de confusión con dataPrueba
+conf_matrix_prueba = confusion_matrix(df_prueba['category'], y_pred_prueba, labels=df_prueba['category'].unique())
+
+# Imprimir el reporte de clasificación para más detalles con dataPrueba
+print(classification_report(df_prueba['category'], y_pred_prueba))
+
+# Visualizar la matriz de confusión para dataPrueba
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix_prueba, annot=True, fmt='d', cmap='Blues', xticklabels=df_prueba['category'].unique(), yticklabels=df_prueba['category'].unique())
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.title('Confusion Matrix for External Data (dataPrueba)')
+plt.show()
 
 
 
