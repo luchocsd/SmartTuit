@@ -2,7 +2,7 @@ import time
 import random
 import os
 import math
-from resultados_clasificacion import resultados 
+from frasesClasificadas import resultados 
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -197,23 +197,19 @@ def imprimirTabla():
     
     plt.show()
 
-    
 
 
-'''
-habria que generar un array de tuits (o rescatarlos de un csv, no se, cada uno catalogado con su categoría)
-luego se generan al azar los individuos (arreglos como [0, 1, 3, 1]) con inicializarPoblacion()
-luego se traen los tuits de esas categorías (no se si conviene hacerlo secuencialmente para evitar mostrar tuits repetidos? pero haría que 
-todas las corridas que hagamos sean iguales)
-Se debería generar un fitness del tamaño numIndividuos que almacene el fitness de cada ind al final de cada uno
-Luego se hacen selec, cross y mut y se repite
-''' 
+
+#MENU ITERATIVO
+os.system('cls')
 op= ""
 reaccion = ""
-#print("_"*90)
+print("_"*90)
 op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
 while op != "C" and op != "S":
-    #print("Opcion no valida")
+    os.system('cls')   
+    print("_"*90)
+    print("Opcion no valida")
     op = input("   C - Comenzar\n   S - Salir\nIngrese la opcion deseada: ").upper()
 
 inicializarPoblacion() #se genera la poblacion inicial de individuos
