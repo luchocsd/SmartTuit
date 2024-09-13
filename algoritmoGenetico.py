@@ -67,13 +67,13 @@ def inicializarPoblacion(): #generamos numIndividuos individuos, con numTuits tu
 def asociarTuits(): #asocia los tuits a cada individuo
     global tuitsAsociados, cantidadTuits
     for i in range(numIndividuos):
-        partes = sum(individuos[i])  #[0, 1, 3, 1] -> 5 
+        partesTotales = sum(individuos[i])  #[0, 1, 3, 1] -> 5 
         
         for j in range(numGenes):
-            if partes == 0:
+            if partesTotales == 0:
                 cantidadTuits[i][j] = 0
             else:
-                cantidadTuits[i][j] = math.ceil((individuos[i][j]/partes)*numTuits)
+                cantidadTuits[i][j] = math.ceil((individuos[i][j]/partesTotales)*numTuits)
         
         while(sum(cantidadTuits[i])>numTuits):    #Me aseguro que la suma sea = a numTuits ver si hacer random
             posicion = random.randint(0,numGenes-1) 
