@@ -1,7 +1,4 @@
-
-
 #####   NOTICIAS + GPT    #####
-
 
 text = [
 #Animal
@@ -776,7 +773,7 @@ text = [
 "El avance de la inteligencia artificial está transformando múltiples industrias.", 
 'La función del iPhone que debes desactivar para evitar que roben tu cuenta bancaria',
 'Las versiones en torno al teléfono de Fabiola Yañez',
-'¿Se imaginan si hubiera ganado Massa? Todo esto seguiría oculto',
+'La NASA lanza un satélite para estudiar el cambio climático',
 'Fabiola Yañez y un "error" que podría complicar su denuncia contra Alberto Fernández',
 'Fabiola Yañez perdió el celular que contenía los chats con Alberto Fernández',
 'La fascinante misión de monitorear el tráfico espacial: “Los satélites deberán dialogar unos con otros”',
@@ -789,16 +786,16 @@ text = [
 'In fraganti: atraparon a dos turistas españolas cuando intentaban robar ropa de una famosa tienda en Palermo',
 'Capturaron a dos españolas cuando intentaron robar en un local de ropa de un shopping en Palermo',
 'WhatsApp sorprende con una función de Instagram que renueva los estados',
-'Jorge Macri criticó al gobierno de Kicillof por su poco compromiso en la lucha contra el delito y cuestionó a la Justicia',
+'La NASA hizo historia al lanzar la primera misión de defensa planetaria',
 'La Ciudad refuerza la seguridad en las calles: suman 1.000 policías que antes cumplían tareas administrativas',
 'El Gobierno porteño sacará 1000 policías a las calles para reforzar la seguridad en puntos estratégicos',
-'Jorge Macri pone policías administrativos a combatir el delito',
+'NASA lanza nasa nasa  la primera misión de defensa planetaria para desviar asteroides',
 'Un joven le preguntó a ChatGPT cómo hacerse rico con una inversión de 100 dólares y ahora es millonario: quién es y cómo fue la historia',
 'Elon Musk anunció que la red social X cerrará sus operaciones en Brasil “con efecto inmediato”',
 'La Corte Suprema de Brasil exigió a Elon Musk que abra las cuentas de Cerimedo por el intento de golpe a Lula',
 'En guerra con un juez de la Corte, Elon Musk anuncia el cierre de las operaciones de X en Brasil',
 'La red social X suspende sus operaciones en Brasil',
-'Elon Musk y SpaceX anuncian la primera misión espacial tripulada a la órbita polar de la Tierra',
+'Elon Musk y SpaceX y la nasa anuncian la primera misión espacial tripulada a la órbita polar de la Tierra, en competencia con la NASA',
 'Google lanzó una nueva versión de su generador de imágenes con IA',
 '¡Basta de spam! La nueva función de WhatsApp que mejorará la protección de los usuarios',
 'Privacidad en WhatsApp: el mensajero tendrá una opción para bloquear mensajes de desconocidos',
@@ -808,12 +805,12 @@ text = [
 'Unboxing del iPhone 16: Estos serían sus colores y caja especial',
 'Abren dos nuevas estaciones YPF tecnológicas en Mendoza',
 'Émile Baudot. Hijo de un granjero, solo hizo la escuela primaria, pero revolucionó las telecomunicaciones',
-'Cuáles son los celulares que se quedarán sin WhatsApp a partir de septiembre',
+'Cuáles son los celulares espacio solar espacial que se quedarán sin WhatsApp a partir de septiembre',
 'Un argentino experto en IA analiza el panorama en nuestro país: “Hay talento, pero la fuga de cerebros por la economía es un desafío”',
 'Estos son los mejores tips para liberar espacio de tu Gmail sin fracasar en el intento',
 'Día de la niñez: estrategias para alejar a los chicos de las pantallas y que hagan un uso saludable de la tecnología',
 'Debate por el uso de celulares en escuelas | Crece la discusión y hay diversas visiones entre los docentes',
-'Primeros resultados: el desafío en las escuelas porteñas ante una norma para mejorar el aprendizaje y la convivencia',
+'Primeros resultados: el desafío espacio solar en las escuelas porteñas ante una norma para mejorar el aprendizaje y la convivencia',
 'Cómo controlar de forma inteligente el uso del smartphone por los hijos',
 'Juegos para ganar dinero en Mercado Pago: las 11 opciones más usadas hoy',
 'Ciberseguridad. Estafas contactless: de qué se trata la nueva modalidad delictiva y cómo evitarla',
@@ -844,11 +841,11 @@ text = [
 'Planificá por Whatsapp: cómo es el asistente de IA que te ayudará con tus viajes',
 'Una policía de Córdoba lucha por su vida tras ser atropellada por un patrullero durante una persecución',
 'Cuál es el dispositivo que consume más WiFi en la casa, según expertos',
-'Cayó el femicida que asesinó a su esposa porque le encontró en el celular mensajes de supuesto amante',
-'Femicidio en La Plata: detuvieron al acusado de asesinar de una puñalada a una madre de siete hijos',
+'Nave espacial espacio solar de la NASA se acerca a un asteroide para desviar su trayectoria',
+'El nuevo lanzamiento de Apple: el iPhone 16, con caja especial y nuevos colores',
 'Perimetral, portación de arma y drogas: los antecedentes en La Plata del detenido por el femicidio',
-'Atraparon al femicida de Liliana Alegres, la mujer de 44 años hallada sin vida en La Plata',
-'Ataque piraña: tres chicas y una joven robaron celulares en Plaza España',
+'En el espacio solar, la NASA lanzó una misión para desviar un asteroide',
+'Espacio solar aeronave espacial de la NASA se acerca a un asteroide para desviar su trayectoria',
 'El ataque de “Las BRAVAS”: robaron y arrastraron por la calle a dos chicas en plena Plaza España',
 'Robo piraña: una mujer y tres adolescentes fueron detenidas en el Centro',
 'Robo piraña. Video: una pandilla de chicas “atacó” en la zona de Plaza España de Córdoba',
@@ -856,7 +853,7 @@ text = [
 'Criptomonedas hoy: cotización de las principales divisas digitales al 19 de agosto',
 'Bitcoin hoy: la cotización este sábado 17 de agosto, minuto a minuto',
 'Los 10 criptos principales de hoy: con una caída entre el 20% y el 89% desde sus máximos históricos',
-'La noticia bomba que dio Luciana Geuna sobre el celular de Alberto Fernández',
+'La noticia bomba que dio Luciana Geuna sobre el celular ',
 'Así se vería hoy el Libertador José de San Martín, según la inteligencia artificial',
 'El largometraje con Inteligencia Artificial que resume las hazañas de José de San Martín',
 'Así se vería hoy el Libertador José de San Martín, segun la inteligencia artificial',
@@ -884,7 +881,7 @@ text = [
 'Un hombre irrumpió en un partido de fútbol infantil y mató a un nene de 10 años',
 'Lo que se sabe hasta ahora del crimen del niño de Mocejón (Toledo), que ha sido apuñalado por un encapuchado',
 'España: un hombre irrumpió en una cancha de fútbol y mató a puñaladas a un niño de 10 años',
-'Todo lo que se sabe hasta ahora del presunto asesino de un niño de 11 años en el campo de fútbol de Mocejón',
+'El nuevo iPhone 16: estos serían sus colores y caja especial. El nuevo celular de Apple',
 'Recuperaron dólares y costosos celulares tras allanamientos en esta Capital',
 'Más competencia para Starlink: autorizan a la europea SES a dar internet satelital en el país',
 'Regalan hasta $30.000 en una billetera virtual para usar en supermercados: cómo acceder y cuándo aprovechar el beneficio',
@@ -899,7 +896,6 @@ text = [
 'BITCOIN se ESTANCA y está lejos de ROMPER un NUEVO MÁXIMO HISTÓRICO',
 'Bitcoin busca acercarse otra vez a los u$s60.000, y Ethereum supera los u$s2.600',
 'Bitcoin no supera el cruce de la muerte, pero sube por tercer día consecutivo',
-
 "Los algoritmos de machine learning permiten predecir comportamientos futuros.", 
 "El blockchain ofrece una forma segura y transparente de realizar transacciones.", 
 "Las criptomonedas están cambiando el panorama financiero global.", 
@@ -3050,8 +3046,8 @@ text = [
 'Reapareció Daniel Orozco con un video en homenaje al General San Martín',
 '"NO SIRVO PARA SER MASCOTA DEL PODER" | Declaración de Cristina Fernández de Kirchenr en Comodoro Py',
 'Atentado a CFK: la decisión de la ex vicepresidenta de “cuidar” a la custodia podría complicar la acusación',
-'Cristina Kirchner en el Patria con foto de familia y baño de multitudes',
-'José Manuel Ubeira: "Tenemos a los tiradores pero no a los asesinos"',
+'Cristina Kirchner en el Patria con foto de familia y baño de multitudes senado legistlatura parlamento',
+'En diputados se debatio la ley de emergencia alimentaria',
 'En medio de una nueva interna, Villarruel canceló su viaje a Mendoza',
 'Fuego cruzado Karina Milei y Victoria Villarruel: arde la interna de La Libertad Avanza',
 'El Gobierno desmintió un distanciamiento entre Milei y Villarruel tras la ausencia de la vicepresidenta en un acto de las Fuerzas Armadas',
@@ -4223,11 +4219,6 @@ text = [
 'Adriel Ramos: “Estamos implementando y diseñando políticas culturales y públicas para toda Santa Cruz”',
 'Un estallido de cultura y color se vivirá en Suchitoto con el Festival del Añil',
 'Cena-tertulia con Alfonso Ussía, premio La Tenida a la Influencia Cultural'
-
-
-
-
-
 ]
 
 categories = ['animal'] * 405 + ['economía'] * 351 + ['tecnología'] * 377 + ['deportes'] * 345 + ['educación'] * 430 + ['entretenimiento'] * 473 + ['gastronomia'] *314 + ['politica'] * 429 + ['salud'] * 403 + ['cultura'] * 330
@@ -4236,86 +4227,3 @@ data = {
 'text': text,
 'category': categories
 }
-
-#animal, economía, tecnología, deportes, educación, entretenimiento, gastronomia, politica, salud, cultura
-#print(len(data['text']))
-#print(len(data['category']))
-
-
-
-prueba = ['«Es un perro buenísimo»: Martín Ku contó como vive Arturito, post-Gran Hermano', 
-'No solo a los perros: a los gatos también les encanta jugar con su tutor a traer un juguete', 
-'Campaña veterinaria gratuita a mascotas para este sábado 7 de septiembre: distrito y servicios que ofrecerán', 
-'Revelaron quienes son mas fieles, los gatos o las gatas', 
-'Los 3 consejos de los expertos para recorrer la naturaleza en solitario y acampar de manera segura', 
-'Cientos de águilas y halcones fueron asesinados por red de tráfico en Estados Unidos', 
-'Del cautiverio a la libertad: cómo los zoológicos argentinos se transforman en santuarios de vida silvestre', 
-'La gripe aviar se extiende la región antártica: hay fauna infectada en las Malvinas', 
-'Alerta en Madrid: apareció un buitre leonado, una de las aves más peligrosas del mundo', 
-'Cuál es el ave misionero que anuncia la llega de la primavera con su emblemático canto', 
-'A vista de pájaro: las noticias destacadas de la semana. Actualidad. sep 2024 | ARTEINFORMADO', 
-'El último adiós a Mr. Greedy: el pingüino africano que engendró 230 criaturas con la misma pareja', 
-'HORÓSCOPO CHINO: los 5 animales que enfrentarán desafíos en la semana del Gallo de Tierra', 
-'A.N.I.M.A.L. llega por primera vez a Tierra del Fuego para celebrar 30 años de heavy metal', 
-'Planeta Tierra: Deciden sacrificar animales salvajes para alimentar a personas en Namibia', 
-'Científicos descubren especie animal congelada desde hace más de 44.000 años en perfecto estado', 
-'La ballena "espía rusa" podría haber muerto tras recibir disparos, según grupos defensores de los animales', 
-'Impactante: un tiburón fue devorado por otro más grande, y es un caso nunca visto', 
-'El impacto de un asteroide marcó el origen de los peces planos', 
-'Una sorpresa que se volvió costumbre: el avistaje de ballenas desde la costa de Miramar', 
-'HORÓSCOPO CHINO: los 3 animales más exitosos en el fin de semana del Perro de Metal', 
-'Cómo saber si mi gato es protector y qué diferencia existe entre el macho y la hembra', 
-'¿Hombres o mujeres? El estudio científico que revela con quien prefieren estar los gatos', 
-'¿Son más fieles los gatos o las gatas?', 
-'Los parásitos en perros y gatos: qué síntomas causan y cómo prevenirlos', 
-'Su pareja confundió a su perro con otro Golden Retriever, llevándolo a casa por error', 
-'Su pareja se confundió de mascota y llevó a otro perro parecido a su casa', 
-'Es viral: su novio se confundió de mascota y llegó con otro perro', 
-'Brenda Asnicar mostró cómo fue el velorio de su gato: "Todo es más difícil sin vos"', 
-'El desgarrador mensaje de Brenda Asnicar por la muerte de su mascota', 
-'Brenda Asnicar despidió a su gato "Bandido" con un emotivo posteo: "Somos uno"', 
-'Brenda Asnicar mostró el desgarrador velorio de su gatito y sus seguidores no contuvieron las lágrimas', 
-'Capturaron en un balneario uruguayo una serpiente yarará: “Es grande para su especie”', 
-'La misteriosa desaparición de decenas de gatos en una isla de Francia: los dueños apuntan al tráfico de animales', 
-'Argentina: transparencia informativa y los perros de Milei', 
-'Alerta en EEUU: reportaron en Missouri el primer caso de gripe aviar sin contacto conocido con animales', 
-'EEUU reporta primer caso de gripe aviar sin contacto conocido con animales', 
-'Confirman el primer contagio en EEUU de H5 (gripe aviar) sin contacto con animales: esto se sabe', 
-'Se registra primer caso de gripe aviar en humanos sin contacto con aves infectadas', 
-'El perro de Pamela David le arruinó un vestido de alta costura e ingresó al Resumen Blue Recargado', 
-'Estas son las dos razas de perro más recomendadas para convivir con niños, según un estudio', 
-'Estudio revela qué perro elegir para una familia con niños', 
-'Las dos razas de perros que mejor se llevan con los niños, según la ciencia', 
-'Según un estudio estas razas de perros son ideales para convivir con niños', 
-'El Gobierno de San Juan defendió la presencia de gavilanes y ahora preocupan las ardillas y unas "simpáticas" aves', 
-'Una ONG de Turquía envió perros callejeros al extranjero para evitar sacrificarlos', 
-'El emotivo momento en que una leona rescatada de una zona de guerra en Ucrania, sintió el pasto por primera vez', 
-'Curiosidades. Japón envió al animal equivocado a erradicar serpientes de una isla: tardó 50 años en solucionarlo', 
-'Venden un millar de animales', 
-'Granjas peleteras chinas: identificaron 39 virus peligrosos de transmición entre especies', 
-'Identifican más de 30 virus potencialmente pandémicos en granjas chinas', 
-'Identifican 39 virus peligrosos en granjas peleteras chinas', 
-'Hallan en granjas de China decenas de virus de “alto riesgo”', 
-'Mi perro, mi rey: las actitudes de los dueños y cómo impactan en la ciudad', 
-'Bajo la consigna “No nos metan el perro” marcharán pidiendo justicia por “Luri” Sosa', 
-'HORÓSCOPO CHINO | Un exclusivo REGALO DE ORO llegará para 5 animales en septiembre', 
-'Las personas que serán muy afortunadas en septiembre 2024, según la astrología china', 
-'HORÓSCOPO CHINO de SEPTIEMBRE 2024: las predicciones para todos los signos', 
-'Horóscopo chino: el único signo que tendrá suerte en septiembre, según Ludovica Squirru', 
-'Peor que tu ex en el baile: así vieron a Nicki Nicole tirándole los perros a un famoso', 
-'Patrulla Rural intercepta cazadores furtivos de Santa Rosa en el oeste', 
-'Laika, la perra rescatada de un criadero clandestino que ganó un amparo luego de tres años de lucha', 
-'Shoto, el gato viajero que se extravió hace más de dos años y que fue encontrado a 3.000 kilómetros de su hogar', 
-'¿Es heroico o cruel recoger mascotas de dueños demasiado pobres para cuidarlas?', 
-'Su hogar es la Patagonia, pero recorre 8.000 kilómetros para vacacionar: conocé a este animal y su particular hábito', 
-'Una proteccionista tiene una deuda millonaria y pide ayuda para seguir adelante', 
-'Quiso ayudar a un animal necesitado y adoptó a uno cariñoso e inteligente que muchos discriminan', 
-'Este sábado comenzará la Campaña de Vacunación Antirrábica', 
-'“Tenemos un gobierno que ladra en Santa Fe como un perro feroz, pero en Buenos Aires mueve la cola”'
-]
-
-print(len(prueba))
-
-
-
-
