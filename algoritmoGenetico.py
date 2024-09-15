@@ -12,7 +12,7 @@ numTuits= 6 #CANT DE TUITS POR INDIVIDUO
 numIndividuos = 10 #MODIFICAR LUEGO
 probCrossover = 0.7
 probMutacion = 0.1
-numeroGeneraciones = 4000
+numeroGeneraciones = 5
 generacion = 0
 
 
@@ -58,7 +58,7 @@ def asociarTuits(): #asocia los tuits a cada individuo
         for j in range(numGenes):
             if partesTotales == 0:
                 cantidadTuits[i][j] = 0
-            else:
+            else:  
                 cantidadTuits[i][j] = math.ceil((individuos[i][j]/partesTotales)*numTuits)
         
         while(sum(cantidadTuits[i])>numTuits):    #Me aseguro que la suma sea = a numTuits ver si hacer random
@@ -68,9 +68,9 @@ def asociarTuits(): #asocia los tuits a cada individuo
         
       
         posTuitAsoc=0
-        for j in range(numGenes): #parados en el individuo i recorremos cada una de las 4 categorias j
-            for k in range (cantidadTuits[i][j]): #la cantidad de tuits que tenga para esa categoria
-                tuitsAsociados[i][posTuitAsoc] = resultados[j][random.randint(0,len(resultados[j])-1)] #le asocio k tuits de la categoria j
+        for k in range(numGenes): #parados en el individuo i recorremos cada una de las 4 categorias j
+            for _ in range (cantidadTuits[i][k]): #la cantidad de tuits que tenga para esa categoria
+                tuitsAsociados[i][posTuitAsoc] = resultados[k][random.randint(0,len(resultados[k])-1)] #le asocio k tuits de la categoria j
                 posTuitAsoc+=1 #para que no sobreescriba sobre los mismo tuits
 
     for i in range(numIndividuos):
@@ -176,8 +176,8 @@ def imprimirTabla():
     plt.grid(True)
     
     # Ajuste de los límites de los ejes
-    plt.xlim(1, numeroGeneraciones)
-    plt.ylim(0, 400)
+    plt.xlim(0, generacion)
+    plt.ylim(0, 60)
     
     plt.show()
 
@@ -210,8 +210,9 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
                 time.sleep(0.25)
 
                 #muestra datos del tuit (solo en desarrollo, despues sacar) TODO SACAR
-                print("generacion: ", generacion, "individuo: ", i, "likes de este individuo: ", cantLikes[i],  "\ntuit: ", j) 
-                
+                print("Generacion: ", generacion) 
+                print("Individuo: ", i)
+                print("Likes de este individuo: ", cantLikes[i])
                 #muestra el tuit
                 print ("\033[92m",tuitsAsociados[i][j],"\033[0m") 
                 
