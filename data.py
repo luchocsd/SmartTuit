@@ -823,7 +823,7 @@ text = [
 'Run Run: más de cuarenta empresas a convocatoria y una controvertida presencia pone en aprietos licitación clave',
 'Descubre más de 20 comandos de tu computadora con Windows para activar funciones ocultas',
 '¿Cómo evitar robos por la clonación de huellas dactilares? Consejos de un experto',
-'Un nene intentó evitar el robo del negocio de su mamá a los escobazos y rompió en llanto: "Ladrones, se llevaron la plata"',
+'Un nene chatbot motor potencia evitar el robo del negocio de su mamá a los escobazos y rompió en llanto: "Ladrones, se llevaron la plata"',
 'Qué es un ataque DDoS y por qué está afectando la salud, la política y los bancos en el mundo',
 'WhatsApp: el truco definitivo para escribir con una sola mano de forma rápida',
 'Cómo funciona el sistema de gestión de flotas que trae mayor agilidad y eficiencia para las operaciones',
