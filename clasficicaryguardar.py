@@ -1,5 +1,5 @@
 import joblib
-from entrenador import remove_accents
+from entrenador import remove_accents, remove_emojis
 import os
 
 #luego de ejecutar el entrenador.py, se generan los archivos modelo_entrenado.pkl y vectorizador.pkl
@@ -22,17 +22,17 @@ vectorizer = joblib.load(vectorizer_path)
 from frasesPorClasificar import frases
 
 # Limpiar y transformar las frases
-frasesLimpias = [remove_accents(frase) for frase in frases]
+frasesLimpiasAcentos = [remove_accents(frase) for frase in frases]
+frasesLimpias = [remove_emojis(frase) for frase in frasesLimpiasAcentos]
 
-
-X = vectorizer.transform(frases)
+X = vectorizer.transform(frasesLimpias)
 
 # Obtener las probabilidades y predicciones
 predicciones = clf.predict(X)
 
 # Generar el contenido para el archivo .py
 resultados_por_categoria = {}
-for frase, categoria in zip(frases, predicciones):
+for frase, categoria in zip(frasesLimpias, predicciones):
     if categoria not in resultados_por_categoria:
         resultados_por_categoria[categoria] = []
     resultados_por_categoria[categoria].append(frase + "["+ categoria +"]" ) #SACAR! TODO 

@@ -46,7 +46,7 @@ def inicializarPoblacion(): #generamos numIndividuos individuos, con numTuits tu
                  #como va a estar con un tuit ponderado, el resto de los tuits se generan con valores menores
             else:
                 individuos[i][j] = random.randint(0,10)
-    
+   
     #guardarDatosTabla() TODO que es esto?
 
 
@@ -201,7 +201,7 @@ asociarTuits() #se asocian los tuits a cada individuo
 
 
 while op.upper() =="C": #si el usuario desea comenzar el experimento
-
+    
     for i in range (numIndividuos): #para cada individuo de la poblacion
         for j in range (numTuits): #para cada tuit del individuo
             if (reaccion !="F"): #si el usuario no desea terminar el experimento
@@ -242,6 +242,6 @@ while op.upper() =="C": #si el usuario desea comenzar el experimento
     asociarTuits()
     guardarDatosTabla()
     
-
+print(individuos)
 imprimirTabla()
 print("\n--- Fin del programa ---")
